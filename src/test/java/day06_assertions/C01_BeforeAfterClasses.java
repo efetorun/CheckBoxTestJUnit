@@ -36,27 +36,26 @@ public class C01_BeforeAfterClasses {
     }
 
     @Test
-    public void amazonTest() {
+    public void Test1() {
         driver.get("https://www.amazon.com/");
     }
 
     @Test
-    public void nutellaTest() throws InterruptedException {
+    public void Test2() throws InterruptedException {
 
-        driver.navigate().refresh();
-        Thread.sleep(2000);
-        //driver.get("https://www.amazon.com/");
+
+
+
         WebElement aramaKutusu= driver.findElement(By.id("twotabsearchtextbox"));
         aramaKutusu.sendKeys("Nutella" + Keys.ENTER);
-
         String expectedWort = "Nutella";
         String actuel = driver.findElement(By.xpath("//span[@class=\"a-color-state a-text-bold\"]")).getText();
         Assert.assertTrue(actuel.contains(expectedWort));
     }
 
     @Test
-    public void nutellaSonuc() throws InterruptedException {
-        Thread.sleep(2000);
+    public void Test3() throws InterruptedException {
+
         String resultsforNutella=driver.findElement(By.xpath("//div[@class=\"a-section a-spacing-small a-spacing-top-small\"]")).getText();
         System.out.println(resultsforNutella);
         String[] resultArr=resultsforNutella.split(" ");
